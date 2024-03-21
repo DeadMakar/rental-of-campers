@@ -1,7 +1,11 @@
+import { CurrentLocation } from "../../components/CurrentLocation";
+import { CatalogList } from "../../components/CatalogList";
+
 const CatalogPage = () => {
   return (
     <>
-      <h1>Catalog</h1>
+      <CurrentLocation />
+      <CatalogList />
     </>
   );
 };
