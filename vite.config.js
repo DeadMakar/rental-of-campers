@@ -5,6 +5,7 @@ import Inspect from "vite-plugin-inspect";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/rental-of-campers/",
   plugins: [react(), Inspect(), svgr()],
   resolve: {
     alias: {
@@ -14,5 +15,4 @@ export default defineConfig({
       assets: "/src/assets",
     },
   },
-  base: "/rental-of-campers/",
 });
