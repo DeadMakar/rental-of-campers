@@ -5,6 +5,7 @@ export const Nav = styled.nav`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  height: 100px;
 `;
 
 export const StyledLink = styled(NavLink)`

@@ -1,12 +1,16 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../Header";
 import { Suspense } from "react";
 import { Container } from "../../styles/GlobalStyles";
 
-const SharedLayout = () => {
+const Layout = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const showHeader = !isHomePage;
+
   return (
     <>
-      <Header />
+      {showHeader && <Header />}
       <Container>
         <Suspense fallback={null}>
           <Outlet />
@@ -16,4 +20,4 @@ const SharedLayout = () => {
   );
 };
 
-export default SharedLayout;
+export default Layout;

@@ -30,7 +30,7 @@ const CurrentLocation = () => {
             <use href={sprite + "#icon-location"} />
           </Svg>
           <p>
-            {locationInfo.city}, {locationInfo.country_name}
+            {locationInfo.country_name}, {locationInfo.city}
           </p>
         </LocationBox>
       ) : (

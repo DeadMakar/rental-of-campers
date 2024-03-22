@@ -18,7 +18,7 @@ import {
   RationLocationLine,
 } from "./CatalogItem.styled";
 
-const CatalogItem = ({ camper }) => {
+const CatalogItem = ({ car }) => {
   const {
     name,
     price,
@@ -38,7 +38,7 @@ const CatalogItem = ({ camper }) => {
     details,
     gallery,
     reviews,
-  } = camper;
+  } = car;
 
   return (
     <Item>
