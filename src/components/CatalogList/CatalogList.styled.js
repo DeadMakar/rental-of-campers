@@ -21,12 +21,12 @@ export const Button = styled.button`
   padding: 16px 32px;
   height: 56px;
   background-color: transparent;
-
+  margin-top: 50px;
+  margin-left: 345px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: -0.01em;
-
   transition: border-color 0.5s ease;
 
   &:hover {

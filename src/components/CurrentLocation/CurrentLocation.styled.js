@@ -16,8 +16,8 @@ export const Title = styled.p`
 export const Svg = styled.svg`
   stroke: rgb(16, 24, 40);
   fill: transparent;
-  width: 18px;
-  height: 20px;
+  width: 20px;
+  height: 22px;
   margin-left: 18px;
   margin-right: 8px;
 `;
@@ -31,4 +31,20 @@ export const LocationBox = styled.div`
   align-items: center;
   border-radius: 10px;
   background: rgb(247, 247, 247);
+`;
+
+export const Input = styled.input`
+  display: flex;
+  flex-direction: row;
+  width: 360px;
+  height: 56px;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: rgb(247, 247, 247);
+
+  &:focus {
+    outline: none;
+  }
 `;

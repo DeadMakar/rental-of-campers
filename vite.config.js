@@ -6,6 +6,11 @@ import Inspect from "vite-plugin-inspect";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/rental-of-campers/",
+  server: {
+    hmr: {
+      overlay: false,
+    },
+  },
   plugins: [react(), Inspect(), svgr()],
   resolve: {
     alias: {

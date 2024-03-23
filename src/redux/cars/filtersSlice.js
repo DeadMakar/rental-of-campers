@@ -6,6 +6,7 @@ const initialState = {
   filters: {
     equipment: [],
     vehicleType: [],
+    location: "",
   },
   isLoading: false,
   error: null,
@@ -29,6 +30,9 @@ const filtersSlice = createSlice({
     updateVehicleTypeFilter(state, action) {
       state.filters.vehicleType = action.payload;
     },
+    updateLocationFilter(state, action) {
+      state.filters.location = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -41,7 +45,10 @@ const filtersSlice = createSlice({
       .addCase(filterCars.rejected, handleRejected);
   },
 });
-export const { updateEquipmentFilter, updateVehicleTypeFilter } =
-  filtersSlice.actions;
+export const {
+  updateEquipmentFilter,
+  updateVehicleTypeFilter,
+  updateLocationFilter,
+} = filtersSlice.actions;
 
 export default filtersSlice.reducer;

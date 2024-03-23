@@ -1,3 +1,4 @@
+import { useState } from "react";
 import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
@@ -17,23 +18,20 @@ import {
   RatingReviews,
   RationLocationLine,
 } from "./CatalogItem.styled";
+import { Modal } from "../Modal";
 
 const CatalogItem = ({ car }) => {
+  const [isModalShown, setIsModalShown] = useState(false);
+  const [activeTab, setActiveTab] = useState("features");
+  const [clickToReviews, setClickToReviews] = useState(false);
   const {
     name,
     price,
     rating,
     location,
     adults,
-    children,
     engine,
     transmission,
-    form,
-    length,
-    width,
-    height,
-    tank,
-    consumption,
     description,
     details,
     gallery,
@@ -117,8 +115,27 @@ const CatalogItem = ({ car }) => {
             <p> AC</p>
           </InfoBox>
         </InfoBoxField>
-        <Button type="submit">Show more</Button>
+        <Button
+          type="button"
+          aria-label="Show more details"
+          onClick={() => {
+            setIsModalShown(true);
+            document.body.style.overflow = "hidden";
+          }}
+        >
+          Show more
+        </Button>
       </div>
+      {isModalShown && (
+        <Modal
+          card={car}
+          isModalShown={isModalShown}
+          closeModal={() => setIsModalShown(false)}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          clickToReviews={clickToReviews}
+        />
+      )}
     </Item>
   );
 };

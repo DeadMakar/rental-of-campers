@@ -41,7 +41,8 @@ export const Label = styled.label`
   position: relative;
   transition: border-color 0.3s ease;
 
-  &:hover {
+  &:hover,
+  &:active {
     border-color: #d84343;
   }
 `;
@@ -50,7 +51,6 @@ export const SvgIcon = styled.svg`
   width: 32px;
   height: 32px;
   margin-bottom: 8px;
-
   fill: transparent;
   stroke: #101828;
 `;
@@ -87,12 +87,12 @@ export const Input = styled(Field)`
   width: 100%;
   height: 100%;
 
-  &:checked + ${Span} ${SvgIcon} {
-    stroke: #e44848;
+  &:checked {
+    border: #e44848;
   }
 
-  &:checked + ${Span} ${SvgIconCampers} {
-    stroke: #e44848;
+  &:checked {
+    border: #e44848;
   }
 `;
 
