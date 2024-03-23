@@ -1,4 +1,4 @@
-import{u as o,j as e,L as r}from"./index-Dn_nx8m9.js";import{s as t}from"./sprite-CyKfa0Vq.js";const i="/rental-of-campers/assets/camper_bg-DScZmOBI.jpg",n=o.div`
+import{u as o,j as e,L as r}from"./index-CRgCEcWB.js";import{s as t}from"./sprite-CyKfa0Vq.js";const i="/rental-of-campers/assets/camper_bg-DScZmOBI.jpg",n=o.div`
   background-image: url(${i});
   background-size: cover;
   background-position: center;
