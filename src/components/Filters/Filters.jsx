@@ -6,29 +6,27 @@ import {
   GroupTitle,
   Input,
   Label,
+  SectionFilters,
   Span,
   SvgIcon,
   SvgIconCampers,
-  SectionFilters,
 } from "./Filters.styled";
 import { useDispatch } from "react-redux";
-import {
-  updateEquipmentFilter,
-  updateVehicleTypeFilter,
-} from "../../redux/cars/filtersSlice";
+import { changeEquipment, changeType } from "../../redux/cars/filterSlice";
 import { Title } from "../CurrentLocation/CurrentLocation.styled";
 
 const Filters = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
-    dispatch(updateEquipmentFilter(values.equipment));
-    dispatch(updateVehicleTypeFilter(values.type));
+    dispatch(changeEquipment(values.equipment));
+    dispatch(changeType(values.type));
   };
 
   return (
     <SectionFilters>
       <Title>Filters</Title>
+
       <Formik
         initialValues={{
           equipment: [],
@@ -53,7 +51,7 @@ const Filters = () => {
             <Label>
               <Input type="checkbox" name="equipment" value="automatic" />
               <Span>
-                <SvgIcon style={{ stroke: "#101828" }}>
+                <SvgIcon>
                   <use href={sprite + "#icon-automatic"} />
                 </SvgIcon>
                 Automatic
@@ -63,7 +61,7 @@ const Filters = () => {
             <Label>
               <Input type="checkbox" name="equipment" value="kitchen" />
               <Span>
-                <SvgIcon style={{ stroke: "#101828" }}>
+                <SvgIcon>
                   <use href={sprite + "#icon-kitchen"} />
                 </SvgIcon>
                 Kitchen
@@ -72,7 +70,7 @@ const Filters = () => {
             <Label>
               <Input type="checkbox" name="equipment" value="TV" />
               <Span>
-                <SvgIcon style={{ stroke: "#101828" }}>
+                <SvgIcon>
                   <use href={sprite + "#icon-tv"} />
                 </SvgIcon>
                 TV
@@ -81,7 +79,7 @@ const Filters = () => {
             <Label>
               <Input type="checkbox" name="equipment" value="shower" />
               <Span>
-                <SvgIcon style={{ stroke: "#101828" }}>
+                <SvgIcon>
                   <use href={sprite + "#icon-shower"} />
                 </SvgIcon>
                 Shower/WC
@@ -96,7 +94,7 @@ const Filters = () => {
             <Label>
               <Input type="radio" name="type" value="panelTruck" />
               <Span>
-                <SvgIconCampers style={{ width: "40px", height: "28px" }}>
+                <SvgIconCampers>
                   <use href={sprite + "#icon-van"} />
                 </SvgIconCampers>
                 Van
@@ -105,7 +103,7 @@ const Filters = () => {
             <Label>
               <Input type="radio" name="type" value="fullyIntegrated" />
               <Span>
-                <SvgIconCampers style={{ width: "40px", height: "28px" }}>
+                <SvgIconCampers>
                   <use href={sprite + "#icon-fully-integrated"} />
                 </SvgIconCampers>
                 Fully Integrated
@@ -115,7 +113,7 @@ const Filters = () => {
             <Label>
               <Input type="radio" name="type" value="alcove" />
               <Span>
-                <SvgIconCampers style={{ width: "40px", height: "28px" }}>
+                <SvgIconCampers>
                   <use href={sprite + "#icon-alcove"} />
                 </SvgIconCampers>
                 Alcove

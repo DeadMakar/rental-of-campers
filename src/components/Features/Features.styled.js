@@ -9,6 +9,7 @@ export const FeatureReviewsWrap = styled.div`
 
 export const DetailsItemsWrap = styled.div`
   padding-bottom: 40px;
+  width: 430px;
 `;
 
 export const VehicleDetailsWrap = styled.div`

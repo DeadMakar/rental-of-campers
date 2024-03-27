@@ -60,6 +60,7 @@ export const NamePriceLine = styled.div`
 export const RatingIcon = styled.svg`
   width: 16px;
   height: 16px;
+  fill: rgb(255, 197, 49);
 `;
 
 export const RatingReviews = styled.span`

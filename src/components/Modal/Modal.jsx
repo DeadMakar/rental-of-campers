@@ -1,26 +1,27 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import sprite from "../../assets/images/sprite.svg";
+import { Container } from "../../styles/GlobalStyles";
 import { Tabs } from "../Tabs";
 import {
   Backdrop,
   CloseBtn,
   Content,
   HeadInfo,
+  LocationIcon,
+  LocationWrap,
   ModalDescr,
   PicsList,
-  Window,
-  ModalContainer,
-  Title,
+  Price,
+  RatingIcon,
   RatingLocationWrap,
   RatingWrap,
-  LocationWrap,
-  Price,
+  Title,
+  Window,
 } from "./Modal.styled";
 
 const Modal = ({
   card,
-  isModalShown,
   closeModal,
   activeTab,
   setActiveTab,
@@ -30,7 +31,10 @@ const Modal = ({
 
   useEffect(() => {
     const handleESCClose = (e) => {
-      if (e.code === "Escape") closeModal();
+      if (e.code === "Escape") {
+        closeModal();
+        document.body.style.overflow = "visible";
+      }
     };
 
     window.addEventListener("keydown", handleESCClose);
@@ -47,32 +51,25 @@ const Modal = ({
       });
   }, [clickToReviews]);
 
-  const handleCloseModal = () => {
-    closeModal();
-
-    document.body.style.overflow = "visible";
-  };
-
   const handleBackdropClose = ({ target, currentTarget }) => {
     if (target === currentTarget) {
-      handleCloseModal();
+      closeModal();
+      document.body.style.overflow = "visible";
     }
   };
 
   return createPortal(
-    <Backdrop
-      className={isModalShown ? "is-shown" : "is-hidden"}
-      onClick={handleBackdropClose}
-    >
-      <ModalContainer onClick={handleBackdropClose}>
-        <Window className={isModalShown ? "is-shown" : "is-hidden"}>
+    <Backdrop onClick={handleBackdropClose}>
+      <Container onClick={handleBackdropClose}>
+        <Window>
           <CloseBtn
-            type="button"
-            aria-label="Close modal"
-            onClick={handleCloseModal}
+            onClick={() => {
+              closeModal();
+              document.body.style.overflow = "visible";
+            }}
           >
             <svg>
-              <use href={sprite + "#icon-close"} />
+              <use href={sprite + "#icon-close"}></use>
             </svg>
           </CloseBtn>
 
@@ -82,16 +79,16 @@ const Modal = ({
 
               <RatingLocationWrap id="rating-wrap">
                 <RatingWrap>
-                  <svg style={{ width: "16px", height: "16px" }}>
+                  <RatingIcon>
                     <use href={sprite + "#icon-star"} />
-                  </svg>
+                  </RatingIcon>
                   <p>{`${card.rating}(${card.reviews.length} Reviews)`}</p>
                 </RatingWrap>
 
                 <LocationWrap>
-                  <svg style={{ width: "14px", height: "16px" }}>
+                  <LocationIcon>
                     <use href={sprite + "#icon-location"} />
-                  </svg>
+                  </LocationIcon>
                   <p>{card.location.split(",").reverse().join(", ")}</p>
                 </LocationWrap>
               </RatingLocationWrap>
@@ -119,7 +116,7 @@ const Modal = ({
             </div>
           </Content>
         </Window>
-      </ModalContainer>
+      </Container>
     </Backdrop>,
     document.getElementById("modal-root")
   );

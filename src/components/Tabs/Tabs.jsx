@@ -1,7 +1,12 @@
-import { TabsWrap, TabsList, RenderBlock } from "./Tabs.styled";
+import {
+  TabsWrap,
+  TabsList,
+  RenderBlock,
+  BookFormContainer,
+} from "./Tabs.styled";
 import { Features } from "../Features";
 import { BookForm } from "../BookForm";
-// import Reviews from "../Reviews";
+import { Reviews } from "../Reviews";
 
 const Tabs = ({ card, activeTab, setActiveTab }) => {
   return (
@@ -32,17 +37,23 @@ const Tabs = ({ card, activeTab, setActiveTab }) => {
 
       <hr />
 
-      {activeTab === "features" ? (
-        <RenderBlock>
-          <Features card={card} />
-          <BookForm />
-        </RenderBlock>
-      ) : (
-        <RenderBlock>
-          {/* <Reviews card={card} />
-          <BookForm /> */}
-        </RenderBlock>
-      )}
+      <RenderBlock>
+        {activeTab === "features" ? (
+          <>
+            <Features card={card} />
+            <BookFormContainer>
+              <BookForm />
+            </BookFormContainer>
+          </>
+        ) : (
+          <>
+            <Reviews card={card} />
+            <BookFormContainer>
+              <BookForm />
+            </BookFormContainer>
+          </>
+        )}
+      </RenderBlock>
     </TabsWrap>
   );
 };

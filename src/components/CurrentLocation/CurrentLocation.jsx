@@ -1,18 +1,31 @@
 import { useEffect, useState } from "react";
 import sprite from "../../assets/images/sprite.svg";
-import { selectCars } from "../../redux/cars/selectors";
-import { LocationBox, Svg, Title, Input } from "./CurrentLocation.styled";
+import { selectCampers } from "../../redux/cars/selectors";
+import {
+  LocationBox,
+  Svg,
+  Title,
+  Input,
+  Error,
+} from "./CurrentLocation.styled";
 import { useSelector } from "react-redux";
+import { changeLocation } from "../../redux/cars/filterSlice";
+import { useDispatch } from "react-redux";
+import { selectLocation } from "../../redux/cars/selectorsFilters";
 
 const CurrentLocation = () => {
   const [userCity, setUserCity] = useState("");
   const [filteredCars, setFilteredCars] = useState([]);
   const [locationInfo, setLocationInfo] = useState(null);
   const [loading, setLoading] = useState(true);
-  const carsInfo = useSelector(selectCars);
+  const carsInfo = useSelector(selectCampers);
+
+  const dispatch = useDispatch();
+  const location = useSelector(selectLocation);
 
   const handleInputChange = (e) => {
     setUserCity(e.target.value);
+    dispatch(changeLocation(e.target.value));
   };
 
   useEffect(() => {
@@ -36,8 +49,8 @@ const CurrentLocation = () => {
 
   useEffect(() => {
     if (userCity) {
-      const filtered = carsInfo?.filter((car) =>
-        car.location.toLowerCase().includes(userCity.toLowerCase())
+      const filtered = carsInfo?.filter((camper) =>
+        camper.location.toLowerCase().includes(userCity.toLowerCase())
       );
       setFilteredCars(filtered);
     } else {
@@ -52,7 +65,7 @@ const CurrentLocation = () => {
       ) : (
         <>
           <Title>
-            Location: {locationInfo?.country_name},{" "}
+            You location: {locationInfo?.country_name},{" "}
             {userCity || locationInfo?.city}
           </Title>
           <LocationBox>
@@ -70,14 +83,14 @@ const CurrentLocation = () => {
             <div>
               <h3>Filtered Cars:</h3>
               <ul>
-                {filteredCars.map((car) => (
-                  <li key={car._id}>{car.name}</li>
+                {filteredCars.map((camper) => (
+                  <li key={camper._id}>{camper.name}</li>
                 ))}
               </ul>
             </div>
           )}
           {filteredCars.length === 0 && userCity && (
-            <p>No cars available in {userCity}</p>
+            <Error>No cars available in {userCity}</Error>
           )}
         </>
       )}

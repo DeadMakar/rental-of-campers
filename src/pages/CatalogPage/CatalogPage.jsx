@@ -1,21 +1,15 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCars } from "../../redux/cars/operations";
 import { CurrentLocation } from "../../components/CurrentLocation";
 import { CatalogList } from "../../components/CatalogList";
 import { Filters } from "../../components/Filters";
 import { Container } from "../../styles/GlobalStyles";
 import { Wrapper } from "./CatalogPage.styled";
-import { selectCars } from "../../redux/cars/selectors";
+import { selectCampers } from "../../redux/cars/selectors";
+import { selectVisibleCampers } from "../../redux/cars/selectorsFilters";
 
 const CatalogPage = () => {
-  const dispatch = useDispatch();
-  const carsInfo = useSelector(selectCars);
-  console.log(carsInfo);
-
-  useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+  const campers = useSelector(selectVisibleCampers);
+  const carsInfo = useSelector(selectCampers);
 
   return (
     <Container>
@@ -24,7 +18,7 @@ const CatalogPage = () => {
           <CurrentLocation carsInfo={carsInfo} />
           <Filters />
         </div>
-        <CatalogList />
+        <CatalogList campers={campers} />
       </Wrapper>
     </Container>
   );

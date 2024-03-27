@@ -113,12 +113,13 @@ export const PicsList = styled.ul`
 
 export const CloseBtn = styled.button`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 40px;
+  right: 40px;
   width: 32px;
   height: 32px;
   border: none;
   background-color: transparent;
+
   svg {
     stroke: #101828;
     width: 32px;
@@ -137,8 +138,9 @@ export const Title = styled.p`
   font-size: 24px;
   font-weight: 600;
   line-height: 30px;
-  letter-spacing: 0%;
+  letter-spacing: 1.5;
   text-align: left;
+  margin-bottom: 10px;
 `;
 
 export const RatingLocationWrap = styled.div`
@@ -151,6 +153,8 @@ export const RatingWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
 
   button {
     text-decoration: underline;
@@ -177,4 +181,36 @@ export const Price = styled.p`
   font-weight: 600;
   font-size: 24px;
   line-height: 1.25;
+`;
+
+export const AdditionalNavigation = styled.div`
+  margin-top: 44px;
+  margin-bottom: 68px;
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    background-color: rgba(16, 24, 40, 0.2);
+    height: 1px;
+    width: 100%;
+    bottom: -24px;
+  }
+`;
+
+export const RatingIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  fill: rgb(255, 197, 49);
+`;
+
+export const LocationIcon = styled.svg`
+  width: 14px;
+  height: 16px;
+  stroke-width: 1.3px;
+  fill: transparent;
+  stroke: #101828;
 `;

@@ -3,7 +3,6 @@ import sprite from "../../assets/images/sprite.svg";
 import {
   Button,
   Description,
-  IconLike,
   Image,
   InfoBox,
   InfoBoxField,
@@ -19,12 +18,14 @@ import {
   RationLocationLine,
 } from "./CatalogItem.styled";
 import { Modal } from "../Modal";
+import { FavoriteBtn } from "../FavoriteBtn";
 
-const CatalogItem = ({ car }) => {
+const CatalogItem = ({ camper }) => {
   const [isModalShown, setIsModalShown] = useState(false);
   const [activeTab, setActiveTab] = useState("features");
   const [clickToReviews, setClickToReviews] = useState(false);
   const {
+    _id,
     name,
     price,
     rating,
@@ -36,10 +37,10 @@ const CatalogItem = ({ car }) => {
     details,
     gallery,
     reviews,
-  } = car;
+  } = camper;
 
   return (
-    <Item>
+    <Item key={_id}>
       <Image src={gallery[0]} alt={name} width={290} height={310} />
       <div>
         <NamePriceLine>
@@ -48,9 +49,7 @@ const CatalogItem = ({ car }) => {
             <Price>
               €{price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "")}
             </Price>
-            <IconLike>
-              <use href={sprite + "#icon-heart-null"} />
-            </IconLike>
+            <FavoriteBtn item={camper} />
           </PriceLikeField>
         </NamePriceLine>
         <RationLocationLine>
@@ -128,7 +127,7 @@ const CatalogItem = ({ car }) => {
       </div>
       {isModalShown && (
         <Modal
-          card={car}
+          card={camper}
           isModalShown={isModalShown}
           closeModal={() => setIsModalShown(false)}
           activeTab={activeTab}

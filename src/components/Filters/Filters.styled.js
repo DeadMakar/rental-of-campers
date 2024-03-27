@@ -87,12 +87,12 @@ export const Input = styled(Field)`
   width: 100%;
   height: 100%;
 
-  &:checked {
-    border: #e44848;
+  &:checked + ${Span} ${SvgIcon} {
+    stroke: #e44848;
   }
 
-  &:checked {
-    border: #e44848;
+  &:checked + ${Span} ${SvgIconCampers} {
+    stroke: #e44848;
   }
 `;
 

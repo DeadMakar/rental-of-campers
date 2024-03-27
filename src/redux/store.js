@@ -6,17 +6,25 @@ import {
   PURGE,
   REGISTER,
   REHYDRATE,
+  persistReducer,
   persistStore,
 } from "redux-persist";
-import { carsReducer } from "./cars/carsSlice";
-import filtersReducer from "./cars/filtersSlice";
+import storage from "redux-persist/lib/storage";
+import { catalogReducer } from "./cars/carsSlice";
+import { filterReducer } from "./cars/filterSlice";
+import { favoritesReducer } from "./cars/favoritesSlice";
+
+const favoritesPersistConfig = {
+  key: "favorites",
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
-    cars: carsReducer,
-    filters: filtersReducer,
+    favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
+    catalog: catalogReducer,
+    filter: filterReducer,
   },
-
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

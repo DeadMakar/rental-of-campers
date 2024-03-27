@@ -33,3 +33,14 @@ export const StyledLink = styled(NavLink)`
     color: #e44848;
   }
 `;
+
+export const Number = styled.div`
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: red;
+  padding: 5px;
+`;

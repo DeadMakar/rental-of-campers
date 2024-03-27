@@ -1,35 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCars } from "./operations";
+import { getCampers, getCampersById } from "./operations";
 
 const initialState = {
   campers: [],
+  camperById: {},
   isLoading: false,
   error: null,
 };
 
-const handlePending = (state) => {
-  state.isLoading = true;
-};
-
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
-
-const carsSlice = createSlice({
-  name: "carsSlice",
+const catalogSlice = createSlice({
+  name: "catalog",
   initialState,
-  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCars.pending, handlePending)
-      .addCase(fetchCars.fulfilled, (state, action) => {
+      .addCase(getCampers.pending, (state) => {
+        state.isLoading = true;
+      })
+
+      .addCase(getCampers.fulfilled, (state, action) => {
+        state.campers = action.payload;
         state.isLoading = false;
         state.error = null;
-        state.campers = action.payload;
       })
-      .addCase(fetchCars.rejected, handleRejected);
+
+      .addCase(getCampers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(getCampersById.fulfilled, (state, action) => {
+        // Додати отриманий об'єкт кемпера до об'єкта `camperById` за його ідентифікатором
+        const { id, data } = action.payload;
+        state.camperById[id] = data;
+      });
   },
 });
 
-export const carsReducer = carsSlice.reducer;
+export const catalogReducer = catalogSlice.reducer;

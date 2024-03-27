@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  width: 360px;
+`;
+
 export const Title = styled.p`
   width: 360px;
   height: 24px;
@@ -11,6 +15,12 @@ export const Title = styled.p`
   letter-spacing: 0%;
   text-align: left;
   margin-bottom: 8px;
+`;
+
+export const Label = styled.label`
+  position: relative;
+  font-weight: 500;
+  color: rgba(16, 24, 40, 0.6);
 `;
 
 export const Svg = styled.svg`
@@ -47,4 +57,8 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+`;
+
+export const Error = styled.p`
+  color: red;
 `;

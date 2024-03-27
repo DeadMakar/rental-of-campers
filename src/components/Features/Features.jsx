@@ -27,150 +27,184 @@ const Features = ({
       <DetailsItemsWrap>
         <DetailsList>
           <InfoBoxField>
-            <InfoBox>
-              <svg>
-                <use href={sprite + "#icon-adults"} />
-              </svg>
-              <p> {adults} adults</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-automatic"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {transmission}</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use href={sprite + "#icon-petrol"} />
-              </svg>
-              <p> {engine}</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-kitchen"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.kitchen && "Kitchen"} </p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-beds"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.beds} beds</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use href={sprite + "#icon-ac"} />
-              </svg>
-              <p> AC</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-air-conditioner"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.airConditioner} beds</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-cd"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.CD} CD</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-radio"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.radio} radio</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-tv"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.TV} TV</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-shower"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.shower} shower</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-hob"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.hob} hob</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-toilet"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.toilet} toilet</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-freezer"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.freezer} freezer</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-microwave"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.microwave} microwave</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-gas"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.gas} gas</p>
-            </InfoBox>
-            <InfoBox>
-              <svg>
-                <use
-                  href={sprite + "#icon-water"}
-                  style={{ stroke: "#101828", fill: "transparent" }}
-                />
-              </svg>
-              <p> {details.water} water</p>
-            </InfoBox>
+            {adults > 0 && (
+              <InfoBox>
+                <svg>
+                  <use href={sprite + "#icon-adults"} />
+                </svg>
+                <p> {adults} adults</p>
+              </InfoBox>
+            )}
+            {transmission > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-automatic"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {transmission}</p>
+              </InfoBox>
+            )}
+            {engine > 0 && (
+              <InfoBox>
+                <svg>
+                  <use href={sprite + "#icon-petrol"} />
+                </svg>
+                <p> {engine}</p>
+              </InfoBox>
+            )}
+            {details.kitchen && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-kitchen"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> Kitchen </p>
+              </InfoBox>
+            )}
+            {details.beds > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-beds"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.beds} beds</p>
+              </InfoBox>
+            )}
+            {details.airConditioner > 0 && (
+              <InfoBox>
+                <svg>
+                  <use href={sprite + "#icon-ac"} />
+                </svg>
+                <p> AC</p>
+              </InfoBox>
+            )}
+            {details.airConditioner > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-air-conditioner"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.airConditioner} beds</p>
+              </InfoBox>
+            )}
+            {details.CD > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-cd"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.CD} CD</p>
+              </InfoBox>
+            )}
+            {details.radio > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-radio"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.radio} radio</p>
+              </InfoBox>
+            )}
+            {details.TV > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-tv"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.TV} TV</p>
+              </InfoBox>
+            )}
+            {details.shower > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-shower"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.shower} shower</p>
+              </InfoBox>
+            )}
+            {details.hob > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-hob"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.hob} hob</p>
+              </InfoBox>
+            )}
+            {details.toilet > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-toilet"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.toilet} toilet</p>
+              </InfoBox>
+            )}
+            {details.freezer > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-freezer"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.freezer} freezer</p>
+              </InfoBox>
+            )}
+            {details.microwave > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-microwave"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.microwave} microwave</p>
+              </InfoBox>
+            )}
+            {details.gas > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-gas"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.gas} gas</p>
+              </InfoBox>
+            )}
+            {details.water > 0 && (
+              <InfoBox>
+                <svg>
+                  <use
+                    href={sprite + "#icon-water"}
+                    style={{ stroke: "#101828", fill: "transparent" }}
+                  />
+                </svg>
+                <p> {details.water} water</p>
+              </InfoBox>
+            )}
           </InfoBoxField>
         </DetailsList>
       </DetailsItemsWrap>

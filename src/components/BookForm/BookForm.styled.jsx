@@ -1,110 +1,74 @@
+import { Field } from "formik";
 import styled from "styled-components";
 
-export const Input = styled.input`
-  width: 100%;
-  padding: 18px;
-  background-color: var(--input-background);
-  color: var(--text-color);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.25;
+export const UserFormWrapper = styled.div`
+  border: 1px solid rgba(16, 24, 40, 0.2);
   border-radius: 10px;
-  border: none;
-  opacity: 0.7;
-
-  transition: opacity var(--linear-transition);
-
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
-
-  &::placeholder {
-    color: var(--placeholder-color);
-  }
-`;
-
-export const Form = styled.form`
+  padding: 24px;
+  width: 448px;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  align-self: flex-start;
+`;
+
+export const Title = styled.h3`
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+`;
+
+export const InfoText = styled.p`
+  color: #475467;
+  margin-bottom: 24px;
+`;
+
+export const InputField = styled(Field)`
   border-radius: 10px;
-  border: 1px solid var(--border-color);
-  padding: 24px;
-  margin-top: 30px;
-
-  @media screen and (min-width: 768px) {
-    width: 50%;
-  }
+  padding: 18px;
+  width: 400px;
+  height: 56px;
+  background-color: rgb(247, 247, 247);
+  color: #101828;
+  border: none;
 `;
 
-export const TitleBlock = styled.div`
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--text-color);
-
-    @media screen and (min-width: 768px) {
-      font-size: 20px;
-    }
-  }
-
-  p {
-    font-size: 16px;
-    color: var(--light-text);
-    margin: 8px 0 14px 0;
-  }
+export const WarningMessage = styled.div`
+  width: 160px;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #e44848;
 `;
 
-export const Label = styled.label`
-  position: relative;
-
-  input {
-    ${Input}
-  }
-
-  textarea {
-    ${Input}
-    resize: none;
-  }
-
-  svg#calendar {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-  }
+export const ContactUserParam = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
 `;
 
-export const ErrorMsg = styled.p`
-  position: absolute;
-  font-size: 12px;
-  color: var(--accent-red);
+export const Comment = styled.textarea`
+  border-radius: 10px;
+  padding: 18px;
+  width: 400px;
+  height: 114px;
+  background-color: #f7f7f7;
+  border: none;
+  resize: none;
 `;
 
-export const SubmitBtn = styled.button`
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.08px;
-  width: 150px;
-  max-height: 60px;
-  padding: 16px;
+export const Button = styled.button`
   border-radius: 200px;
-  color: var(--white);
-  background-color: var(--accent-red);
+  padding: 16px 60px;
+  height: 56px;
+  border: none;
+  background-color: #e44848;
+  color: #fff;
 
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
+  cursor: pointer;
+  transition: background-color 0.5s ease;
 
-  @media screen and (min-width: 1440px) {
-    &:hover,
-    &:focus {
-      background-color: var(--red-hover);
-    }
+  &:hover {
+    background-color: #d84343;
   }
 `;

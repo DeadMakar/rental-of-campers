@@ -1,9 +1,10 @@
-export const selectCars = (state) => state.cars.campers;
+export const selectCampers = (state) => state.catalog.campers;
 
-export const selectIsLoading = (state) => state.cars.isLoading;
+export const selectCampersById = (state) => state.catalog.camperById;
 
-export const selectError = (state) => state.cars.error;
+export const selectFavoritesCampers = (state) =>
+  state.favorites.favoritesCampers;
 
-export const selectEquipmentFilter = (state) => state.cars.filters.equipment;
+export const selectIsLoading = (state) => state.catalog.isLoading;
 
-export const selectVehicleTypeFilter = (state) => state.filters.vehicleType;
+export const selectIsError = (state) => state.catalog.error;

@@ -13,6 +13,8 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  flex-wrap: wrap;
+  align-content: center;
 `;
 
 export const Button = styled.button`
@@ -32,4 +34,14 @@ export const Button = styled.button`
   &:hover {
     border-color: #e44848;
   }
+`;
+
+export const NoCarsMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 200px;
+  font-weight: 700;
+  font-size: 19px;
 `;
