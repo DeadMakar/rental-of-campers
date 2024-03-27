@@ -5,7 +5,7 @@ import Inspect from "vite-plugin-inspect";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/rental-of-campers/",
+  base: "/rental-of-campers",
   server: {
     hmr: {
       overlay: false,
